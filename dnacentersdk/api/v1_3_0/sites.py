@@ -737,13 +737,13 @@ class Sites(object):
                        basestring, may_be_none=False)
 
         params = {
-            'siteId':
-                site_id,
         }
         params.update(request_parameters)
         params = dict_from_items_with_values(params)
 
         path_params = {
+            'siteId':
+                site_id,
         }
 
         _payload = {
@@ -760,7 +760,7 @@ class Sites(object):
             _headers.update(headers)
             with_custom_headers = True
 
-        e_url = ('/dna/intent/api/v1/membership')
+        e_url = ('/dna/intent/api/v1/membership/${siteId}')
         endpoint_full_url = apply_path_params(e_url, path_params)
         if with_custom_headers:
             json_data = self._session.get(endpoint_full_url, params=params,
